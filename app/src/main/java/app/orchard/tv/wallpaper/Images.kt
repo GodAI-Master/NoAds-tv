@@ -9,6 +9,7 @@ import android.graphics.Rect
 import android.graphics.Shader
 import androidx.core.graphics.createBitmap
 import java.io.File
+import java.io.InputStream
 import kotlin.math.max
 import kotlin.math.roundToInt
 import kotlin.random.Random
@@ -24,6 +25,19 @@ object Images {
         var sample = 1
         while (bounds.outWidth / (sample * 2) >= w && bounds.outHeight / (sample * 2) >= h) sample *= 2
         val src = BitmapFactory.decodeFile(file.path, BitmapFactory.Options().apply { inSampleSize = sample }) ?: return null
+        return cover(src, w, h).also { if (it !== src) src.recycle() }
+    }
+
+    /** Decodes a reopenable source no larger than needed for [w]×[h], then centre-crops it. */
+    fun decodeCover(open: () -> InputStream, w: Int, h: Int): Bitmap? {
+        val bounds = BitmapFactory.Options().apply { inJustDecodeBounds = true }
+        open().use { BitmapFactory.decodeStream(it, null, bounds) }
+        if (bounds.outWidth <= 0 || bounds.outHeight <= 0) return null
+        var sample = 1
+        while (bounds.outWidth / (sample * 2) >= w && bounds.outHeight / (sample * 2) >= h) sample *= 2
+        val src = open().use {
+            BitmapFactory.decodeStream(it, null, BitmapFactory.Options().apply { inSampleSize = sample })
+        } ?: return null
         return cover(src, w, h).also { if (it !== src) src.recycle() }
     }
 

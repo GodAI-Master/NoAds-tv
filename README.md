@@ -8,7 +8,7 @@
 
 NoAds TV 基于 Aerial，是一款面向小米、TCL 等国产 Android TV 的 tvOS 风格桌面：无广告、无推荐流，只保留应用、壁纸和 Apple TV 航拍屏保；开机自动接管，待机后也不会被清理。本仓库在保留这些原有功能的基础上，重点扩充多风格高清内置壁纸。
 
-> **NoAds TV 升级重点：多风格高清内置壁纸。** 计划在保留 Aerial 原有无广告桌面、遥控器操作和电视适配体验的基础上，扩展适合电视大屏的壁纸选择。**当前状态：新增壁纸尚未合入。** 本分支基于 Aerial v1.26，原有功能介绍、截图和设备记录来自上游；安装说明、官网及 APK 下载链接仍指向上游，NoAds TV 暂无独立发布包。
+> **NoAds TV 升级重点：已新增 10 张多风格高清内置壁纸。** 新图包括沙丘、林间光束、瀑布、极光、海浪、银河、花田、山湖、雪山和城市夜景；原有 Aerial 功能和操作方式保持不变。10 张图片的作者、来源和许可记录在[壁纸来源与许可](app/src/main/assets/wallpapers/CREDITS.md)。本分支基于 Aerial v1.26，原有功能介绍、截图和设备记录来自上游；安装说明、官网及 APK 下载链接仍指向上游，NoAds TV 暂无独立发布包。
 
 **中文** · [English](README.en.md)
 
@@ -18,7 +18,7 @@ NoAds TV 基于 Aerial，是一款面向小米、TCL 等国产 Android TV 的 tv
 <a href="#第一步打开电视的-adb-调试"><img alt="开启 ADB" src="https://img.shields.io/badge/%E5%BC%80%E5%90%AF%20ADB-555555?style=for-the-badge&logo=gnubash&logoColor=white"></a>
 
 <a href="https://github.com/pengchujin/aerial-tv/releases/latest"><img alt="上游版本" src="https://img.shields.io/github/v/release/pengchujin/aerial-tv?style=flat-square&label=%E4%B8%8A%E6%B8%B8%E7%89%88%E6%9C%AC&color=2997ff"></a>
-<a href="LICENSE"><img alt="许可证 MIT" src="https://img.shields.io/badge/%E8%AE%B8%E5%8F%AF%E8%AF%81-MIT-555555?style=flat-square"></a>
+<a href="LICENSE"><img alt="代码许可 MIT" src="https://img.shields.io/badge/%E4%BB%A3%E7%A0%81-MIT-555555?style=flat-square"></a>
 <img alt="Android TV 5.0+" src="https://img.shields.io/badge/Android%20TV-5.0%2B-3ddc84?style=flat-square&logo=android&logoColor=white">
 
 ![Aerial 首页](site/img/home.jpg)
@@ -29,7 +29,7 @@ NoAds TV 基于 Aerial，是一款面向小米、TCL 等国产 Android TV 的 tv
 
 </div>
 
-> 上方及下方界面图均保留自上游 Aerial 仓库，用于展示本项目继承的功能；本仓库新增的壁纸及其预览将在实际加入后单独标注来源与授权。
+> 界面截图保留自上游 Aerial 仓库，用于展示本项目继承的功能；下方壁纸预览为 NoAds TV 新增资源，来源和授权见[壁纸记录](app/src/main/assets/wallpapers/CREDITS.md)。
 
 ## 功能介绍（沿用自 Aerial）
 
@@ -80,7 +80,22 @@ NoAds TV 基于 Aerial，是一款面向小米、TCL 等国产 Android TV 的 tv
   <img src="site/img/phone.jpg" width="20%" alt="手机上的设置页">
 </p>
 
-- **壁纸**：必应每日精选（国内直连）、14 张 Mac 风格的内置壁纸（山丘、沙丘、海、波浪、光晕），或者你自己的照片。
+- **壁纸**：必应每日精选（国内直连）、14 张程序绘制的 Mac 风格壁纸、**新增的 10 张高清摄影壁纸**，或者你自己的照片。新图包含 9 张 CC0 和 1 张 CC BY-SA 4.0 作品，分别标注作者和来源。
+
+<p align="center">
+  <img src="app/src/main/assets/wallpapers/desert-sunset.jpg" width="19%" alt="撒哈拉沙丘">
+  <img src="app/src/main/assets/wallpapers/forest-sunlight.jpg" width="19%" alt="林间光束">
+  <img src="app/src/main/assets/wallpapers/forest-waterfall.jpg" width="19%" alt="森林瀑布">
+  <img src="app/src/main/assets/wallpapers/aurora-fairbanks.jpg" width="19%" alt="极光之夜">
+  <img src="app/src/main/assets/wallpapers/ocean-wave.jpg" width="19%" alt="海浪">
+</p>
+<p align="center">
+  <img src="app/src/main/assets/wallpapers/milky-way.jpg" width="19%" alt="银河">
+  <img src="app/src/main/assets/wallpapers/flower-field.jpg" width="19%" alt="郁金香花田">
+  <img src="app/src/main/assets/wallpapers/mountain-lake.jpg" width="19%" alt="山湖倒影">
+  <img src="app/src/main/assets/wallpapers/snowy-mountains.jpg" width="19%" alt="雪山">
+  <img src="app/src/main/assets/wallpapers/city-night.jpg" width="19%" alt="城市夜景">
+</p>
 - **用手机设置**：扫描壁纸面板上的二维码，在手机上传照片、选壁纸、换屏保。页面只在面板打开时开放，地址带随机令牌。
 
 ## 安装
@@ -241,6 +256,6 @@ BUILD=1 KEEP_ADB=1 TV=<电视IP> tools/install.sh      # 用本地编译的 APK 
 
 [MIT](LICENSE)。Inter 字体使用 [SIL Open Font License](FONT-LICENSE-OFL.txt)。
 
-NoAds TV 基于 pengchujin 的 Aerial 项目衍生。本仓库保留上游的 MIT 许可、版权声明和第三方许可文件；原始代码、截图及设备验证记录注明来自上游。Material Symbols 图标路径采用 Apache 2.0，详见 `GlyphPaths.kt` 中的说明。新增壁纸将逐张记录作者、来源和适用许可，不会因代码采用 MIT 就统一声明为 MIT。
+NoAds TV 基于 pengchujin 的 Aerial 项目衍生。本仓库保留上游的 MIT 许可、版权声明和第三方许可文件；原始代码、截图及设备验证记录注明来自上游。Material Symbols 图标路径采用 Apache 2.0，详见 `GlyphPaths.kt` 中的说明。新增壁纸分别遵循各自许可，不会因代码采用 MIT 就统一声明为 MIT；作者、来源和许可见[壁纸记录](app/src/main/assets/wallpapers/CREDITS.md)。
 
 NoAds TV 与 Aerial 均未获 Apple、小米、TCL、海尔、OPPO 或索尼背书；品牌标志归各自所有者。航拍影片版权归 Apple，由 Apple 服务器直接播放；每日精选图片来自必应，版权归原作者所有。

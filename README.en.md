@@ -8,7 +8,7 @@
 
 NoAds TV builds on Aerial, a tvOS-style launcher for Android TVs sold in China: no ads or recommendation feeds, just apps, wallpapers and Apple TV aerial screensavers. It takes over at boot and survives standby. This fork keeps Aerial's existing experience and focuses on adding high-resolution built-in wallpapers in more styles.
 
-> **NoAds TV upgrade focus: high-resolution built-in wallpapers in multiple styles.** The plan is to expand wallpaper choices for TV screens while preserving Aerial's ad-free home screen, remote controls and device support. **Current status: the new wallpapers are not yet included.** This branch is based on Aerial v1.26; the existing feature descriptions, screenshots and device notes come from upstream. The install instructions, website and APK links still point to Aerial, and NoAds TV does not yet publish its own APK.
+> **NoAds TV upgrade: 10 new high-resolution built-in wallpapers in multiple styles.** The new set includes desert dunes, forest sunbeams, a waterfall, aurora, ocean waves, the Milky Way, a flower field, a mountain lake, snowy mountains and a city at night. Aerial's existing features and controls remain unchanged. Authors, sources and licenses are listed in [Wallpaper credits](app/src/main/assets/wallpapers/CREDITS.md). This branch is based on Aerial v1.26; inherited feature descriptions, screenshots and device notes are from upstream. Install instructions, the website and APK links still point to Aerial; NoAds TV does not yet publish its own APK.
 
 [中文](README.md) · **English**
 
@@ -18,7 +18,7 @@ NoAds TV builds on Aerial, a tvOS-style launcher for Android TVs sold in China: 
 <a href="#step-1-turn-on-adb-debugging"><img alt="Turn on ADB" src="https://img.shields.io/badge/Turn%20on%20ADB-555555?style=for-the-badge&logo=gnubash&logoColor=white"></a>
 
 <a href="https://github.com/pengchujin/aerial-tv/releases/latest"><img alt="Upstream version" src="https://img.shields.io/github/v/release/pengchujin/aerial-tv?style=flat-square&label=upstream%20version&color=2997ff"></a>
-<a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-555555?style=flat-square"></a>
+<a href="LICENSE"><img alt="Code license: MIT" src="https://img.shields.io/badge/code-MIT-555555?style=flat-square"></a>
 <img alt="Android TV 5.0+" src="https://img.shields.io/badge/Android%20TV-5.0%2B-3ddc84?style=flat-square&logo=android&logoColor=white">
 
 ![Aerial's home screen](site/img/home.jpg)
@@ -29,7 +29,7 @@ NoAds TV builds on Aerial, a tvOS-style launcher for Android TVs sold in China: 
 
 </div>
 
-> The interface images below are retained from the upstream Aerial repository and illustrate the inherited features. New wallpapers and their previews will be labeled with their sources and licenses when they are added here.
+> Interface screenshots are retained from upstream Aerial to show inherited features. The wallpaper previews below are new NoAds TV assets; see [Wallpaper credits](app/src/main/assets/wallpapers/CREDITS.md) for sources and licenses.
 
 ## Inherited features
 
@@ -80,7 +80,22 @@ On TVs that use Android's standard screensaver (TCL, for one), Aerial becomes th
   <img src="site/img/phone.jpg" width="20%" alt="The setup page on a phone">
 </p>
 
-- **Wallpaper**: Bing's photo of the day (reachable from China), fourteen Mac-style built-ins (hills, dunes, sea, waves and soft light), or your own photos.
+- **Wallpaper**: Bing's photo of the day (reachable from China), 14 procedurally drawn Mac-style wallpapers, **10 new high-resolution photo wallpapers**, or your own photos. The new set contains nine CC0 works and one CC BY-SA 4.0 work, with author and source credits for each.
+
+<p align="center">
+  <img src="app/src/main/assets/wallpapers/desert-sunset.jpg" width="19%" alt="Sahara dunes">
+  <img src="app/src/main/assets/wallpapers/forest-sunlight.jpg" width="19%" alt="Forest sunbeams">
+  <img src="app/src/main/assets/wallpapers/forest-waterfall.jpg" width="19%" alt="Forest waterfall">
+  <img src="app/src/main/assets/wallpapers/aurora-fairbanks.jpg" width="19%" alt="Aurora at night">
+  <img src="app/src/main/assets/wallpapers/ocean-wave.jpg" width="19%" alt="Ocean waves">
+</p>
+<p align="center">
+  <img src="app/src/main/assets/wallpapers/milky-way.jpg" width="19%" alt="Milky Way">
+  <img src="app/src/main/assets/wallpapers/flower-field.jpg" width="19%" alt="Tulip field">
+  <img src="app/src/main/assets/wallpapers/mountain-lake.jpg" width="19%" alt="Mountain lake">
+  <img src="app/src/main/assets/wallpapers/snowy-mountains.jpg" width="19%" alt="Snowy mountains">
+  <img src="app/src/main/assets/wallpapers/city-night.jpg" width="19%" alt="City at night">
+</p>
 - **Phone setup**: scan the QR code in the wallpaper panel to upload photos, pick a wallpaper or change the screensaver from your phone. The page is only open while the panel is, behind a random token.
 
 ## Install
@@ -242,6 +257,6 @@ The aerial catalog, `app/src/main/assets/aerials.json`, is generated from Apple'
 
 [MIT](LICENSE). The Inter typeface is under the [SIL Open Font License](FONT-LICENSE-OFL.txt).
 
-NoAds TV is derived from Aerial by pengchujin. This repository retains the upstream MIT license, copyright notice and third-party license files. The original code, screenshots and device-validation notes are credited to the upstream contributors. Material Symbols glyph paths are under Apache 2.0, as noted in `GlyphPaths.kt`. New wallpapers will be credited and licensed individually; the code's MIT license does not automatically apply to them.
+NoAds TV is derived from Aerial by pengchujin. This repository retains the upstream MIT license, copyright notice and third-party license files. The original code, screenshots and device-validation notes are credited to the upstream contributors. Material Symbols glyph paths are under Apache 2.0, as noted in `GlyphPaths.kt`. Each new wallpaper retains its own license; the code's MIT license does not automatically apply to the photos. See [Wallpaper credits](app/src/main/assets/wallpapers/CREDITS.md) for authors, sources and licenses.
 
 NoAds TV and Aerial are not affiliated with or endorsed by Apple, Xiaomi, TCL, Haier, OPPO or Sony; brand logos belong to their owners. The aerial films are © Apple and stream from Apple's servers. Daily photos come from Bing and belong to their respective owners.

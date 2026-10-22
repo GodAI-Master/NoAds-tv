@@ -48,7 +48,8 @@ enum class ScreensaverMode(val key: String) {
  * Everything behind the home screen: which wallpaper is chosen, where pictures come from, and what
  * the screensaver shows. Sources:
  *
- * - Built-in: Aerial's own Mac-style pictures, drawn on the TV ([Gradients]).
+ * - Built-in: Aerial's own Mac-style pictures ([Gradients]) and separately licensed photos under
+ *   assets/wallpapers.
  * - Daily: Bing's photo of the day (cn.bing.com, reachable from China without a proxy). The last
  *   eight are kept; "daily:latest" always follows the newest.
  * - Photos: pictures uploaded from a phone through the setup page ([PhoneServer]). "photos:rotate"
@@ -58,6 +59,28 @@ enum class ScreensaverMode(val key: String) {
  * State is Compose snapshot state, written on the main thread only.
  */
 object Wallpapers {
+    private data class BundledPhoto(
+        val key: String,
+        val file: String,
+        val nameZh: String,
+        val nameEn: String,
+        val author: String,
+        val license: String = "CC0 1.0",
+    )
+
+    private val bundledPhotos = listOf(
+        BundledPhoto("sahara", "desert-sunset.jpg", "撒哈拉沙丘", "Sahara Dunes", "Mustang Joe"),
+        BundledPhoto("forest-rays", "forest-sunlight.jpg", "林间光束", "Forest Sunbeams", "Filip Varga"),
+        BundledPhoto("waterfall", "forest-waterfall.jpg", "森林瀑布", "Forest Waterfall", "Martin Eklund"),
+        BundledPhoto("aurora", "aurora-fairbanks.jpg", "极光之夜", "Aurora Night", "Karthik Sridharan"),
+        BundledPhoto("ocean", "ocean-wave.jpg", "海浪", "Ocean Waves", "Saral Shots"),
+        BundledPhoto("milky-way", "milky-way.jpg", "银河", "Milky Way", "Felix Mittermeier"),
+        BundledPhoto("flowers", "flower-field.jpg", "郁金香花田", "Tulip Field", "Polychrome Creative"),
+        BundledPhoto("mountain-lake", "mountain-lake.jpg", "山湖倒影", "Mountain Lake", "Bonnie Moreland"),
+        BundledPhoto("snowy-mountains", "snowy-mountains.jpg", "雪山", "Snowy Mountains", "Alberto Restifo"),
+        BundledPhoto("city-night", "city-night.jpg", "城市夜景", "City at Night", "Kerwin Moore", "CC BY-SA 4.0"),
+    )
+
     private const val TAG = "AerialWallpaper"
     const val LATEST_DAILY = "daily:latest"
     const val AUTO = "auto"
@@ -150,7 +173,13 @@ object Wallpapers {
 
     /** Full picture at [w]×[h] without shading, for the photo screensaver. Call off the main thread. */
     fun picture(wp: Wallpaper, w: Int, h: Int): Bitmap? = when (wp.kind) {
-        WallpaperKind.Builtin -> Gradients.byKey(wp.id.removePrefix("grad:"))?.let { Gradients.render(it, w, h) }
+        WallpaperKind.Builtin -> {
+            val photo = bundledPhotos.firstOrNull { wp.id == "image:${it.key}" }
+            if (photo != null) runCatching {
+                Images.decodeCover({ app.assets.open("wallpapers/${photo.file}") }, w, h)
+            }.getOrNull()
+            else Gradients.byKey(wp.id.removePrefix("grad:"))?.let { Gradients.render(it, w, h) }
+        }
         WallpaperKind.Daily, WallpaperKind.Photo -> fileFor(wp)?.takeIf { it.exists() }?.let { Images.decodeCover(it, w, h) }
         WallpaperKind.Auto -> null
     }
@@ -191,11 +220,19 @@ object Wallpapers {
         val daily = readDailyIndex().map { Wallpaper("daily:${it.first}", WallpaperKind.Daily, it.second, it.third) }
         val zh = Locale.getDefault().language == "zh"
         val builtins = Gradients.presets.map { Wallpaper("grad:${it.key}", WallpaperKind.Builtin, if (zh) it.nameZh else it.nameEn) }
+        val bundled = bundledPhotos.map {
+            Wallpaper(
+                "image:${it.key}",
+                WallpaperKind.Builtin,
+                if (zh) it.nameZh else it.nameEn,
+                if (zh) "摄影：${it.author} · ${it.license}" else "Photo by ${it.author} · ${it.license}",
+            )
+        }
         val photos = (photoDir.listFiles { f -> f.extension == "jpg" } ?: emptyArray())
             .sortedByDescending { it.lastModified() }
             .map { Wallpaper("photo:${it.nameWithoutExtension}", WallpaperKind.Photo, if (zh) "我的照片" else "My Photo") }
         val auto = Wallpaper(AUTO, WallpaperKind.Auto, if (zh) "跟随 App" else "Follow App")
-        items = daily + builtins + photos + auto
+        items = daily + builtins + bundled + photos + auto
     }
 
     // ---- daily photos ----
