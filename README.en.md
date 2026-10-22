@@ -8,7 +8,7 @@
 
 NoAds TV builds on Aerial, a tvOS-style launcher for Android TVs sold in China: no ads or recommendation feeds, just apps, wallpapers and Apple TV aerial screensavers. It takes over at boot and survives standby. This fork keeps Aerial's existing experience and focuses on adding high-resolution built-in wallpapers in more styles.
 
-> **Current status:** This branch is based on Aerial v1.26. The feature descriptions, screenshots and device notes below come from upstream; the additional built-in wallpapers have not yet been added. The install instructions, website and APK links still point to Aerial upstream. NoAds TV does not yet publish its own APK.
+> **NoAds TV upgrade focus: high-resolution built-in wallpapers in multiple styles.** The plan is to expand wallpaper choices for TV screens while preserving Aerial's ad-free home screen, remote controls and device support. **Current status: the new wallpapers are not yet included.** This branch is based on Aerial v1.26; the existing feature descriptions, screenshots and device notes come from upstream. The install instructions, website and APK links still point to Aerial, and NoAds TV does not yet publish its own APK.
 
 [中文](README.md) · **English**
 
