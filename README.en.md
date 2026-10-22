@@ -1,34 +1,37 @@
 <div align="center">
 
-<img src="docs/brand/icon.png" width="96" alt="Aerial icon">
+<img src="docs/brand/icon.png" width="96" alt="Original Aerial icon, retained from upstream">
 
-# Aerial
+# NoAds TV
 
-**A calm home screen for Android TV.**
+**An Aerial-derived project maintained by GodAI-Master.**
 
-A tvOS-style launcher with no ads and no recommendation feeds. Just your apps, your wallpaper and Apple TV's aerial screensavers.<br>
-Built for the Xiaomi, TCL and other TVs sold in China. It takes over at boot and survives standby.
+NoAds TV builds on Aerial, a tvOS-style launcher for Android TVs sold in China: no ads or recommendation feeds, just apps, wallpapers and Apple TV aerial screensavers. It takes over at boot and survives standby. This fork keeps Aerial's existing experience and focuses on adding high-resolution built-in wallpapers in more styles.
+
+> **Current status:** This branch is based on Aerial v1.26. The feature descriptions, screenshots and device notes below come from upstream; the additional built-in wallpapers have not yet been added. The install instructions, website and APK links still point to Aerial upstream. NoAds TV does not yet publish its own APK.
 
 [中文](README.md) · **English**
 
-<a href="https://aerial.qust.me/en/"><img alt="Website" src="https://img.shields.io/badge/Website-1f6feb?style=for-the-badge&logo=safari&logoColor=white"></a>
-<a href="https://github.com/pengchujin/aerial-tv/releases/latest"><img alt="Download APK" src="https://img.shields.io/badge/Download%20APK-34a853?style=for-the-badge&logo=android&logoColor=white"></a>
-<a href="#install-with-an-agent-recommended"><img alt="Install with an agent" src="https://img.shields.io/badge/Install%20with%20an%20agent-d97757?style=for-the-badge&logo=claude&logoColor=white"></a>
+<a href="https://aerial.qust.me/en/"><img alt="Upstream Aerial website" src="https://img.shields.io/badge/Upstream%20Aerial%20website-1f6feb?style=for-the-badge&logo=safari&logoColor=white"></a>
+<a href="https://github.com/pengchujin/aerial-tv/releases/latest"><img alt="Download upstream APK" src="https://img.shields.io/badge/Download%20upstream%20APK-34a853?style=for-the-badge&logo=android&logoColor=white"></a>
+<a href="#install-with-an-agent-recommended"><img alt="Install the upstream version with an agent" src="https://img.shields.io/badge/Install%20upstream%20with%20an%20agent-d97757?style=for-the-badge&logo=claude&logoColor=white"></a>
 <a href="#step-1-turn-on-adb-debugging"><img alt="Turn on ADB" src="https://img.shields.io/badge/Turn%20on%20ADB-555555?style=for-the-badge&logo=gnubash&logoColor=white"></a>
 
-<a href="https://github.com/pengchujin/aerial-tv/releases/latest"><img alt="Version" src="https://img.shields.io/github/v/release/pengchujin/aerial-tv?style=flat-square&label=version&color=2997ff"></a>
+<a href="https://github.com/pengchujin/aerial-tv/releases/latest"><img alt="Upstream version" src="https://img.shields.io/github/v/release/pengchujin/aerial-tv?style=flat-square&label=upstream%20version&color=2997ff"></a>
 <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-555555?style=flat-square"></a>
 <img alt="Android TV 5.0+" src="https://img.shields.io/badge/Android%20TV-5.0%2B-3ddc84?style=flat-square&logo=android&logoColor=white">
 
 ![Aerial's home screen](site/img/home.jpg)
 
-| The TV's stock home screen | With Aerial |
+| The TV's stock home screen | Upstream Aerial home screen |
 |:---:|:---:|
 | <img src="site/img/stock-xiaomi.jpg" alt="The stock home screen, covered in show recommendations and membership badges"> | <img src="site/img/home.jpg" alt="Aerial's home screen"> |
 
 </div>
 
-## Features
+> The interface images below are retained from the upstream Aerial repository and illustrate the inherited features. New wallpapers and their previews will be labeled with their sources and licenses when they are added here.
+
+## Inherited features
 
 ### Home
 
@@ -235,8 +238,10 @@ A few design choices: everything is laid out on a 960×540dp canvas and scaled, 
 
 The aerial catalog, `app/src/main/assets/aerials.json`, is generated from Apple's public `resources-16.tar`. It holds film addresses and location names only, no video.
 
-## License
+## Credits and licenses
 
 [MIT](LICENSE). The Inter typeface is under the [SIL Open Font License](FONT-LICENSE-OFL.txt).
 
-Aerial is an independent open-source project, not affiliated with Apple, Xiaomi, TCL, Haier, OPPO or Sony; brand logos belong to their owners. The aerial films are © Apple and stream from Apple's servers. Daily photos come from Bing and belong to their respective owners.
+NoAds TV is derived from Aerial by pengchujin. This repository retains the upstream MIT license, copyright notice and third-party license files. The original code, screenshots and device-validation notes are credited to the upstream contributors. Material Symbols glyph paths are under Apache 2.0, as noted in `GlyphPaths.kt`. New wallpapers will be credited and licensed individually; the code's MIT license does not automatically apply to them.
+
+NoAds TV and Aerial are not affiliated with or endorsed by Apple, Xiaomi, TCL, Haier, OPPO or Sony; brand logos belong to their owners. The aerial films are © Apple and stream from Apple's servers. Daily photos come from Bing and belong to their respective owners.

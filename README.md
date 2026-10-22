@@ -1,34 +1,37 @@
 <div align="center">
 
-<img src="docs/brand/icon.png" width="96" alt="Aerial 图标">
+<img src="docs/brand/icon.png" width="96" alt="上游 Aerial 图标，原样保留">
 
-# Aerial
+# NoAds TV
 
-**给国产电视的一块干净桌面。**
+**由 GodAI-Master 维护的 Aerial 衍生项目。**
 
-参照 tvOS 设计的 Android TV 桌面：没有广告，没有推荐流，只有你的 App、你的壁纸和 Apple TV 航拍屏保。<br>
-为小米、TCL 等国产电视而做，开机自动接管，待机也不会被清理。
+NoAds TV 基于 Aerial，是一款面向小米、TCL 等国产 Android TV 的 tvOS 风格桌面：无广告、无推荐流，只保留应用、壁纸和 Apple TV 航拍屏保；开机自动接管，待机后也不会被清理。本仓库在保留这些原有功能的基础上，重点扩充多风格高清内置壁纸。
+
+> **当前状态**：本分支目前基于 Aerial v1.26，原有功能介绍、截图和设备记录均来自上游；新增内置壁纸尚未合入。下面的安装说明、官网及 APK 下载链接仍指向 Aerial 上游，NoAds TV 尚无独立发布包。
 
 **中文** · [English](README.en.md)
 
-<a href="https://aerial.qust.me"><img alt="官网" src="https://img.shields.io/badge/%E5%AE%98%E7%BD%91-1f6feb?style=for-the-badge&logo=safari&logoColor=white"></a>
-<a href="https://github.com/pengchujin/aerial-tv/releases/latest"><img alt="下载 APK" src="https://img.shields.io/badge/%E4%B8%8B%E8%BD%BD%20APK-34a853?style=for-the-badge&logo=android&logoColor=white"></a>
-<a href="#用-agent-安装推荐"><img alt="让 Agent 帮你装" src="https://img.shields.io/badge/%E8%AE%A9%20Agent%20%E5%B8%AE%E4%BD%A0%E8%A3%85-d97757?style=for-the-badge&logo=claude&logoColor=white"></a>
+<a href="https://aerial.qust.me"><img alt="上游 Aerial 官网" src="https://img.shields.io/badge/%E4%B8%8A%E6%B8%B8%20Aerial%20%E5%AE%98%E7%BD%91-1f6feb?style=for-the-badge&logo=safari&logoColor=white"></a>
+<a href="https://github.com/pengchujin/aerial-tv/releases/latest"><img alt="下载上游 APK" src="https://img.shields.io/badge/%E4%B8%8B%E8%BD%BD%20%E4%B8%8A%E6%B8%B8%20APK-34a853?style=for-the-badge&logo=android&logoColor=white"></a>
+<a href="#用-agent-安装推荐"><img alt="让 Agent 帮你安装上游版" src="https://img.shields.io/badge/%E8%AE%A9%20Agent%20%E5%AE%89%E8%A3%85%E4%B8%8A%E6%B8%B8%E7%89%88-d97757?style=for-the-badge&logo=claude&logoColor=white"></a>
 <a href="#第一步打开电视的-adb-调试"><img alt="开启 ADB" src="https://img.shields.io/badge/%E5%BC%80%E5%90%AF%20ADB-555555?style=for-the-badge&logo=gnubash&logoColor=white"></a>
 
-<a href="https://github.com/pengchujin/aerial-tv/releases/latest"><img alt="版本" src="https://img.shields.io/github/v/release/pengchujin/aerial-tv?style=flat-square&label=%E7%89%88%E6%9C%AC&color=2997ff"></a>
+<a href="https://github.com/pengchujin/aerial-tv/releases/latest"><img alt="上游版本" src="https://img.shields.io/github/v/release/pengchujin/aerial-tv?style=flat-square&label=%E4%B8%8A%E6%B8%B8%E7%89%88%E6%9C%AC&color=2997ff"></a>
 <a href="LICENSE"><img alt="许可证 MIT" src="https://img.shields.io/badge/%E8%AE%B8%E5%8F%AF%E8%AF%81-MIT-555555?style=flat-square"></a>
 <img alt="Android TV 5.0+" src="https://img.shields.io/badge/Android%20TV-5.0%2B-3ddc84?style=flat-square&logo=android&logoColor=white">
 
 ![Aerial 首页](site/img/home.jpg)
 
-| 电视自带的桌面 | 换上 Aerial 之后 |
+| 电视自带的桌面 | Aerial 上游桌面截图 |
 |:---:|:---:|
 | <img src="site/img/stock-xiaomi.jpg" alt="电视自带的桌面：满屏剧集推荐、会员和限免角标"> | <img src="site/img/home.jpg" alt="Aerial 首页"> |
 
 </div>
 
-## 功能
+> 上方及下方界面图均保留自上游 Aerial 仓库，用于展示本项目继承的功能；本仓库新增的壁纸及其预览将在实际加入后单独标注来源与授权。
+
+## 功能介绍（沿用自 Aerial）
 
 ### 首页
 
@@ -234,8 +237,10 @@ BUILD=1 KEEP_ADB=1 TV=<电视IP> tools/install.sh      # 用本地编译的 APK 
 
 航拍目录 `app/src/main/assets/aerials.json` 由 Apple 公开的 `resources-16.tar` 生成，只有影片地址和地名，不含影片本身。
 
-## 许可
+## 许可与鸣谢
 
 [MIT](LICENSE)。Inter 字体使用 [SIL Open Font License](FONT-LICENSE-OFL.txt)。
 
-Aerial 是独立的开源项目，与 Apple、小米、TCL、海尔、OPPO、索尼均无关联，文中的品牌标志归各自所有者。航拍影片版权归 Apple 所有，由 Apple 的服务器直接播放；每日精选图片来自必应，版权归原作者所有。
+NoAds TV 基于 pengchujin 的 Aerial 项目衍生。本仓库保留上游的 MIT 许可、版权声明和第三方许可文件；原始代码、截图及设备验证记录注明来自上游。Material Symbols 图标路径采用 Apache 2.0，详见 `GlyphPaths.kt` 中的说明。新增壁纸将逐张记录作者、来源和适用许可，不会因代码采用 MIT 就统一声明为 MIT。
+
+NoAds TV 与 Aerial 均未获 Apple、小米、TCL、海尔、OPPO 或索尼背书；品牌标志归各自所有者。航拍影片版权归 Apple，由 Apple 服务器直接播放；每日精选图片来自必应，版权归原作者所有。
